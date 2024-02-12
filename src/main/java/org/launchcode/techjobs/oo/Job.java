@@ -2,6 +2,9 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static java.util.Objects.isNull;
+
+
 public class Job {
 
     private int id;
@@ -32,6 +35,21 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
+    @Override
+    public String toString(){
+        if(isNull(this.name) && isNull(this.location) && isNull(this.employer) && isNull(this.positionType) && isNull(this.coreCompetency)){
+            return System.lineSeparator() + "OOPS! This job does not seem to exist." + System.lineSeparator();
+        }
+        else{
+            return System.lineSeparator() + "ID: " + this.id +
+                    System.lineSeparator() + "Name: " + ((this.name.isBlank()) ?  "Data not available" : this.name)+
+                    System.lineSeparator() + "Employer: " + ((this.employer.toString().isBlank()) ?  "Data not available" : this.employer)+
+                    System.lineSeparator() + "Location: " + ((this.location.toString().isBlank()) ?  "Data not available" : this.location)+
+                    System.lineSeparator() + "Position Type: " + ((this.positionType.toString().isBlank()) ?  "Data not available" : this.positionType)+
+                    System.lineSeparator() + "Core Competency: " + ((this.coreCompetency.toString().isBlank()) ?  "Data not available" : this.coreCompetency)+
+                    System.lineSeparator();
+        }
+    }
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;

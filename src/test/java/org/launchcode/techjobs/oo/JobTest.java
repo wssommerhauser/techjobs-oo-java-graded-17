@@ -36,4 +36,47 @@ public class JobTest {
          assertTrue(!job1.equals(job2));
 
      }
+
+     @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+         Job job1 = new Job ("Samuel",new Employer("Company Inc"),new Location("Da Badlands"), new PositionType("Company Doings"),new CoreCompetency("Deeds"));
+
+         char firstC = job1.toString().charAt(0);
+         char lastC = job1.toString().charAt(job1.toString().length() - 1);
+
+
+         assertTrue(firstC == '\r' && lastC == '\n');
+
+     }
+
+     @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+         Job job1 = new Job("Samuel",new Employer("Company Inc"),new Location("Da Badlands"), new PositionType("Company Doings"),new CoreCompetency("Deeds"));
+
+         assertTrue(job1.toString().contains("ID: " + job1.getId()));
+         assertTrue(job1.toString().contains("Name: " + job1.getName()));
+         assertTrue(job1.toString().contains("Employer: " + job1.getEmployer().getValue()));
+         assertTrue(job1.toString().contains("Location: " + job1.getLocation().getValue()));
+         assertTrue(job1.toString().contains("Position Type: " + job1.getPositionType().getValue()));
+         assertTrue(job1.toString().contains("Core Competency: " + job1.getCoreCompetency().getValue()));
+
+     }
+
+     @Test
+    public void testToStringHandlesEmptyField() {
+        Job job1 = new Job("Samuel",new Employer(""),new Location(""), new PositionType("Company Doings"),new CoreCompetency("Deeds"));
+
+         assertTrue(job1.toString().contains("ID: " + job1.getId()));
+         assertTrue(job1.toString().contains("Name: " + job1.getName()));
+         assertTrue(job1.toString().contains("Employer: Data not available"));
+         assertTrue(job1.toString().contains("Location: Data not available"));
+         assertTrue(job1.toString().contains("Position Type: " + job1.getPositionType().getValue()));
+         assertTrue(job1.toString().contains("Core Competency: " + job1.getCoreCompetency().getValue()));
+     }
+
+//     @Test
+//    public void testForIDOnlyWithNoFields(){
+//         Job job1 = new Job();
+//         assertEquals("\nOOPS! This job does not seem to exist.\n", job1.toString());
+//     }
 }
