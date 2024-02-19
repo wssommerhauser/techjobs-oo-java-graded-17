@@ -45,7 +45,7 @@ public class JobTest {
          char lastC = job1.toString().charAt(job1.toString().length() - 1);
 
 
-         assertTrue(firstC == '\r' && lastC == '\n');
+         assertTrue(firstC == '\n' && lastC == '\n');
 
      }
 

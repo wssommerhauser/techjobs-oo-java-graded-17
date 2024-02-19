@@ -41,13 +41,12 @@ public class Job {
             return System.lineSeparator() + "OOPS! This job does not seem to exist." + System.lineSeparator();
         }
         else{
-            return System.lineSeparator() + "ID: " + this.id +
-                    System.lineSeparator() + "Name: " + ((this.name.isBlank()) ?  "Data not available" : this.name)+
-                    System.lineSeparator() + "Employer: " + ((this.employer.toString().isBlank()) ?  "Data not available" : this.employer)+
-                    System.lineSeparator() + "Location: " + ((this.location.toString().isBlank()) ?  "Data not available" : this.location)+
-                    System.lineSeparator() + "Position Type: " + ((this.positionType.toString().isBlank()) ?  "Data not available" : this.positionType)+
-                    System.lineSeparator() + "Core Competency: " + ((this.coreCompetency.toString().isBlank()) ?  "Data not available" : this.coreCompetency)+
-                    System.lineSeparator();
+            return "\nID: " + this.id +
+                    "\nName: " + ((this.name.isBlank()) ?  "Data not available" : this.name)+
+                    "\nEmployer: " + ((this.employer.toString().isBlank()) ?  "Data not available" : this.employer)+
+                    "\nLocation: " + ((this.location.toString().isBlank()) ?  "Data not available" : this.location)+
+                    "\nPosition Type: " + ((this.positionType.toString().isBlank()) ?  "Data not available" : this.positionType)+
+                    "\nCore Competency: " + ((this.coreCompetency.toString().isBlank()) ?  "Data not available" : this.coreCompetency) + "\n";
         }
     }
     @Override
